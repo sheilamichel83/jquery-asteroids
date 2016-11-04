@@ -17,6 +17,7 @@ $.ajax({
         $(".container").append(currentRow);
       }
       makeName(asteroids[i], currentRow);
+      makeSize(asteroids[i], currentRow);
 
     }
   }
@@ -30,3 +31,19 @@ $.ajax({
     $(column).append(name);
     $(row).append(column);
   }
+
+function makeSize(asteroid, row){
+  var column = $("<div></div>").addClass("col-md-4");
+  //TODO:I should calculate the average size of the asteroid, rather thatn just
+  //use it's mas diameter.
+  var size = $("<h4></h4>").html(asteroid.estimated_diameter.feet.estimated_diameter_max);
+
+$(column).append(size);
+$(row).append(column);
+}
+
+//This function is used to create the third column, which contains close
+//approach data about this asteroid.
+function makeClose(asteroid, row){
+
+}
